@@ -1,0 +1,63 @@
+a=[' ',' ',' ',' ',' ',' ',' ',' ',' ']
+def game():
+    
+    c=0
+    #a=[' ',' ',' ',' ',' ',' ',' ',' ',' ']
+     #checking for want to play or not
+    n=int(input('Enter 1 to play and 0 for exit: '))
+    if n==1:
+        #a=[' ',' ',' ',' ',' ',' ',' ',' ',' ']
+        add = True
+        while add:
+            #
+        
+            position=int(input('Player-1, Enter position: '))
+            tic_p(1,position)
+            c=c+1
+            add=check(1)
+            if add == False:
+                break
+            position1=int(input('Player-2, Enter position: '))
+            tic_p(0,position1)
+            
+            #add number of box filled
+            c=c+1
+            
+            add=check(0)
+            if c >= 9:
+                print('Game over!')
+                add=False
+        
+    else:
+        print('Thank you!')
+   
+    
+def tic_p(player,position):
+    #a=[' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    if player==1:
+        a[position-1]='X'
+    elif player==0:
+        a[position-1]='O'
+
+    #a1=
+    print('      *     *')
+    print('  {}   *  {}  *   {}'.format(a[0],a[1],a[2]))
+    print('      *     *')
+    print('* * * * * * * * * *')
+    print('      *     *')
+    print('  {}   *  {}  *  {}'.format(a[3],a[4],a[5]))
+    print('      *     *')
+    print('* * * * * * * * * *')
+    print('      *     *')
+    print('  {}   *  {}  *  {}'.format(a[6],a[7],a[8]))
+    print('      *     *')
+    
+    
+def check(player):
+    if (a[0] == a[1]== a[2]=='O' or a[3] == a[4]==a[5]=='O' or a[6] == a[7]== a[8]=='O' or a[0] == a[3]== a[6]=='O' or a[1] == a[4]== a[7]=='O' or a[2] == a[5]== a[8]=='O' or a[0] == a[4]== a[8]=='O' or a[2] == a[4]== a[6]=='O' or a[0] == a[1]== a[2]=='X' or a[3] == a[4]==a[5]=='X' or a[6] == a[7]== a[8]=='X' or a[0] == a[3]== a[6]=='X' or a[1] == a[4]== a[7]=='X' or a[2] == a[5]== a[8]=='X' or a[0] == a[4]== a[8]=='X' or a[2] == a[4]== a[6]=='X'):
+        print("congrats!, Player-{} won.".format(player))
+        return False
+    else:
+        return True
+
+game()
