@@ -1,2 +1,1 @@
-# mm
-it's first repository
+Python Basic Projects
